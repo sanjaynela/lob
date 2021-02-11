@@ -30,3 +30,27 @@ function changeDialValue (index, incrementBy) {
     window.lockState.wheels[index] = digit
   }
 
+  // Check if the digits are the secret code
+  let i
+  let equal = 1
+  for (i = 0; i < SECRET_COMBO.length; i++) {
+    if (SECRET_COMBO[i] !== window.lockState.wheels[i]) {
+      equal = 0
+    }
+  }
+  if (equal) {
+    // If yes, updated locked to unlocked
+    window.lockState.locked = false
+  } else {
+    // If no, update locked to true
+    window.lockState.locked = true
+
+    // When the lock is set to match the secretCombo
+    // call the redirect() function with your name
+    redirect('sanjay-nelagadde')
+  }
+}
+
+// let our other modules find our functions
+window.lockState = lockState
+window.changeDialValue = changeDialValue
