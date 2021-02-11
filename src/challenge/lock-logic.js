@@ -29,6 +29,7 @@ function changeDialValue (index, incrementBy) {
     }
     window.lockState.wheels[index] = digit
   }
+  
 
   // Check if the digits are the secret code
   let i
